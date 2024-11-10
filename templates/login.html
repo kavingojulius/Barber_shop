@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Login | Page {% endblock %}
+
+
+
+    {% block content %}
+    <div class="container text-center mt-5 service-header shadow">
+        <h2 class="">Login | Page</h2>
+    </div>
+    <div class="container mt-4 fform">
+        <form action="{% url 'login' %}" method="POST" class="frm p-3 shadow rounded" style="width:40%; margin: auto;">
+            {% csrf_token %}
+
+            {{ form|crispy }}
+
+            <input type="submit" class="btn btn-outline-primary" value="Log In">
+            <!-- <label for="" >Username</label>
+            <input type="text" class="form-control mt-2 mb-3" name="username" placeholder="Enter Your Username" required>            
+       
+            <label for="">Password</label>
+            <input type="password" class="form-control mt-2 mb-3" name="password" id="pass" placeholder="Enter Your password" required>
+
+            
+            <input type="submit" name="submit" value="Log In" class="btn btn-outline-primary mt-3">
+            <p>Not Registered ? <a href="{% url 'signup' %}">Sign in</a></p> 
+ -->
+        </form>
+    </div>
+
+    {% endblock %}

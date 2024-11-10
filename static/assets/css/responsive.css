@@ -1,0 +1,165 @@
+@media only screen and (min-width: 1199px) and (max-width: 2500px) {
+    .navbar-brand img {
+        width: 10%;
+    }
+
+}
+
+
+@media only screen and (min-width: 991px) and (max-width: 1199px) {
+    .navbar-brand img {
+        width: 10%;
+    }    
+    .about-row{
+        margin-top: 20px;
+    }
+
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+   
+
+    .navbar-brand img {
+        width: 9%;
+    }
+    .navbar-nav{
+        text-align: center;
+        
+        background-color: rgb(201, 200, 199);
+        margin-top: 10px;
+        max-width: 60%;
+        border-radius: 15px;
+    }
+    #services-carousel .item{
+        min-height: 300px;
+    }
+    .about-us{
+        margin-top: 60px;
+        position: relative;
+        top: 50px;
+        padding: 5px;
+        /* background-color: aqua; */
+    }
+    .about-row{
+        padding: 5px;
+    }
+
+
+}
+
+
+@media only screen and (max-width: 767px) {
+
+    .navbar-nav{
+        text-align: center;
+        background-color: rgb(201, 200, 199);
+        margin-top: 10px;
+        max-width: 50%;
+        border-radius: 15px;
+    }
+    .navbar-brand img {
+        width: 35px;
+    }
+
+    #services-carousel .item{
+        min-height: 300px;
+    }
+    .banner-text-area h2 span {
+        font-size: 60px;
+    }
+    .banner-text-area h1 {
+        line-height: 1.5;
+        font-size: 30px;
+    }
+    .about-us{
+        /* margin-top: 60px; */
+        position: relative;
+        top: 55px;
+    }
+    .imgg-area::before {
+        width: 90%;
+    }
+
+    .section-header .line {
+        width: 60%;
+    }
+
+    .single-team-item img {
+        width: 100%;
+    }       
+    .overlay .overlay-inner h4 {
+        font-size: 20px;
+    }
+
+    ul.port-nav-list li {
+        margin-bottom: 10px;
+    }
+
+    .about-main h2 {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+
+    .overlay .overlay-inner {
+        top: 30%;
+    }
+    
+
+
+}
+
+@media only screen and (min-width: 699px) and (max-width: 768px) {
+
+    #services-carousel .item{
+        height: 300px;
+    }
+
+}
+@media only screen and (min-width: 576px) and (max-width: 699px) {
+    #services-carousel .item{
+
+        max-width: 350px;
+        margin: 30px auto;
+        /* height:  */
+    }
+}
+
+@media only screen and (max-width: 575px) {
+   
+    #services-carousel .item{
+
+        max-width: 300px;
+        margin: 30px auto;
+        /* height:  */
+    }
+    .pricing-col{
+        width: 180px;
+        margin: auto;
+        column-gap: 5;
+        /* top: 15px;*/
+    }
+
+}
+
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+    .overlay .overlay-inner h4 {
+        font-size: 30px;
+    }
+
+    .overlay .overlay-inner p {
+        font-size: 18px;
+    }
+}
+
+
+
+@media only screen and (max-width: 360px) {
+   
+    #services-carousel .item{
+        max-width: 250px;
+        margin: 20px auto;
+        
+    }
+}
+
