@@ -1,10 +1,12 @@
 from django.contrib import admin
-from .models import Price
+from .models import *
 
 
 # Register your models here.
 
 admin.site.register(Price)
+admin.site.register(WorkCategory)
+admin.site.register(Item)
 
 
 

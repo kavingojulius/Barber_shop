@@ -1,17 +1,31 @@
 from django.http import HttpResponseRedirect,HttpResponse,Http404
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.views import LoginView
-from .models import Price
+from .models import *
 from . import forms
 
 
 # Create your views here.
 def index_page(request):
     price = Price.objects.all()
+    work_categories = WorkCategory.objects.all()
+    # Show all items if no category is selected
+     # Get category_id from query parameters
+    category_id = request.GET.get('category_id')
+
+    if category_id:
+        category = get_object_or_404(WorkCategory, id=category_id)
+        items = category.items.all()
+    else:
+        category = None
+        items = Item.objects.all()
     context = {
-        'price':price
+        'price':price,
+        'work_categories':work_categories,
+        'category':category,
+        'items':items
     }
     return render(request, 'index.html',context)
 

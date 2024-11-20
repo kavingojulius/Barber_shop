@@ -8,6 +8,7 @@ from .views import *
 urlpatterns =[
 
     path('', index_page , name='index'),
+    # path('<int:category_id>/', index_page, name='item'),
     path('form/', form_page , name='form'),
     path('details/', details , name='details'),
     path('update/<int:id>/', update, name='update'),

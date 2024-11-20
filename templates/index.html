@@ -11,7 +11,9 @@
 {% block content %}
 
    
-<section class="header-overlay w-100 vh-100 justify-content-center d-flex">                                        
+<section class="header-main w-100 vh-100 justify-content-center d-flex" >           
+    <div class="background-overlay"></div>                                 
+    <img class="background-image" src="{% static 'assets/img/backg.jpg' %}" alt="">    
     <div class="banner-text-area text-center">
         <h2 class="banner-text">
             <span style="font-family: 'SANSERN', sans-serif;">KING'S</span>
@@ -40,36 +42,31 @@
     <div class="row about-row justify-content-center align-items-center">
         <div class="col-md-5 col-sm-12 col-xs-12">
             <div class="owl-carousel owl-theme about-video"  id="videocarousel" data-bs-ride="true">                    
-
-                    <div class="item single-video text-center">
-                        <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@busu.j/video/7241576429975047430"
-                         data-video-id="7241576429975047430" style=" max-width:80vh;max-height:50vh;" > 
-                         <section>
-                             <a target="_blank" title="@busu.j" href="https://www.tiktok.com/@busu.j?refer=embed">@busu.j</a> <p></p> 
-                             <a target="_blank" title="♬ Nani - Zuchu" href="https://www.tiktok.com/music/Nani-7229329703038945282?refer=embed">♬ Nani - Zuchu</a> 
-                            </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>                                                
-                    </div>
-
-                    <div class="item single-video">
-                        <a href="https://web.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fpages&_rdc=1&_rdr"> 
-                            <i class="fas fa-play"></i>
-                        </a>
-                        
-                        <img src="{% static 'assets/img/blog1.jpg' %}" class="d-block w-100 img-fluid" alt="about image"> <!--change image -->
-                    </div>
-                    <div class="item single-video">
-                        <a href="https://www.tiktok.com/@dailyug/video/7229364895077174533" class=""> 
-                            <i class="fa fa-play"></i>
-                        </a>
-                        
-                        <img src="{% static 'assets/img/port-3.jpg' %}" class="d-block w-100 img-fluid" alt="about image"> <!--change image -->
-                    </div>
+                <div class="item single-video text-center">
+                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@busu.j/video/7241576429975047430"
+                        data-video-id="7241576429975047430" style=" max-width:80vh;max-height:50vh;" > 
+                        <section>
+                            <a target="_blank" title="@busu.j" href="https://www.tiktok.com/@busu.j?refer=embed">@busu.j</a> <p></p> 
+                            <a target="_blank" title="♬ Nani - Zuchu" href="https://www.tiktok.com/music/Nani-7229329703038945282?refer=embed">♬ Nani - Zuchu</a> 
+                        </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>                                                
+                </div>
+                <div class="item single-video">
+                    <a href="https://web.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fpages&_rdc=1&_rdr"> 
+                        <i class="fas fa-play"></i>
+                    </a>
+                    <!-- <video controls class="d-block w-100 img-fluid">
+                        <source src="{% static 'assets/video/video.mp4' %}" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video> -->
+                    <img src="{% static 'assets/img/blog1.jpg' %}" class="d-block w-100 img-fluid" alt="about image"> change image
+                </div>
+                <div class="item single-video">
+                    <a href="https://www.tiktok.com/@dailyug/video/7229364895077174533" class=""> 
+                        <i class="fa fa-play"></i>
+                    </a>
                     
-
-        
-
-                
-                
+                    <img src="{% static 'assets/img/port-3.jpg' %}" class="d-block w-100 img-fluid" alt="about image"> <!--change image -->
+                </div>                                                            
             </div>
         </div>
         <div class="col-md-7 col-sm-12 col-xs-12">
@@ -260,109 +257,45 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="container" >
         <div class="portfolio-content">
             <div class="port-nav">
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-12">
                             <ul class="port-nav-list">
-                                <li><a class="img-filter active" data-filter="*">All</a></li>
-                                <li><a class="img-filter" data-filter=".cut">Hair Cut</a></li>
-                                <li><a class="img-filter" data-filter=".shave">Shaves</a></li>
-                                <li><a class="img-filter" data-filter=".hstyle">Hair Style</a></li>
+                                <li>
+                                    <a class="{% if not category %}active{% endif %}" href="{% url 'index' %}#portfolio">All</a>
+                                </li>
+                                {% for cat in work_categories %}
+                                <li>
+                                    <a class="{% if category and category.id == cat.id %}active{% endif %}"
+                                       href="{% url 'index' %}?category_id={{ cat.id }}#portfolio">{{ cat.name }}</a>
+                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row port-items" id="img-filter" style="position: relative; height: 570px;">
+            <div id="items-section" class="container">
+                <div class="row port-items"  style="position: relative; height: 570px;">
 
-                    <div class="col-md-4 col-sm-6 col-xs-12 single-port hstyle shave" style="position: absolute; left: 0px; top: 0px;">
-                        <div class="project-item">
-                            <a href="{% static 'assets/img/port-1.jpg' %}" class="zoom1">
-                                <img src="{% static 'assets/img/port-1.jpg' %}" alt="portfolio image">
-                                <div class="overlay">
-                                    <div class="overlay-inner">
-                                        <h4>Hair Saloon</h4>
-                                        <p>Classic Barber Shop</p>
-                                    </div>
-                                </div>
-                            </a>
+                    {% for item in items %}
+
+                    <div class="col-md-4 col-sm-6 col-xs-12 single-port hstyle " style="position: absolute; left: 0px; top: 0px;">
+                        <div class="project-item"> 
+                            <h2>{{ item.title }}</h2>                                                                          
+                                                                  
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-6 col-xs-12 single-port cut hstyle" style="position: absolute; left: 380px; top: 0px;">
-                        <div class="project-item">
-                            <a href="{% static 'assets/img/port-3.jpg' %}" class="zoom1"> 
-                                <img src="{% static 'assets/img/port-3.jpg' %}" alt="portfolio image"> 
-                                <div class="overlay">
-                                    <div class="overlay-inner">
-                                        <h4>Hair Saloon</h4>
-                                        <p>Classic Barber Shop</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                    {% empty %}
+                        <h4> No items available in this category. </h4>
+                    {% endfor %}
 
-                    <div class="col-md-4 col-sm-6 col-xs-12 single-port shave" style="position: absolute; left: 760px; top: 0px;">
-                        <div class="project-item">
-                            <a href="{% static 'assets/img/port-4.jpg' %}" class="zoom1"> 
-                                <img src="{% static 'assets/img/port-4.jpg' %}" alt="portfolio image"> 
-                                <div class="overlay">
-                                    <div class="overlay-inner">
-                                        <h4>Hair Saloon</h4>
-                                        <p>Classic Barber Shop</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12 single-port shave hstyle" style="position: absolute; left: 0px; top: 285px;">
-                        <div class="project-item">
-                            <a href="{% static 'assets/img/port-6.jpg' %}" class="zoom1"> 
-                                <img src="{% static 'assets/img/port-6.jpg' %}" alt="portfolio image"> 
-                                <div class="overlay">
-                                    <div class="overlay-inner">
-                                        <h4>Hair Saloon</h4>
-                                        <p>Classic Barber Shop</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12 single-port shave cut shaves" style="position: absolute; left: 380px; top: 285px;">
-                        <div class="project-item">
-                            <a href="{% static 'assets/img/port-2.jpg' %}" class="zoom1"> 
-                                <img src="{% static 'assets/img/port-2.jpg' %}" alt="portfolio image"> 
-                                <div class="overlay">
-                                    <div class="overlay-inner">
-                                        <h4>Hair Saloon</h4>
-                                        <p>Classic Barber Shop</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-xs-12 single-port cut" style="position: absolute; left: 760px; top: 285px;">
-                        <div class="project-item">
-                            <a href="{% static 'assets/img/port-5.jpg' %}" class="zoom1"> 
-                                <img src="{% static 'assets/img/port-5.jpg' %}" alt="portfolio image"> 
-                                <div class="overlay">
-                                    <div class="overlay-inner">
-                                        <h4>Hair Saloon</h4>
-                                        <p>Classic Barber Shop</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+                                              
 
                 </div>
             </div>
