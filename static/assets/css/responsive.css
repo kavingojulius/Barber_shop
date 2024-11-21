@@ -150,9 +150,17 @@
     .overlay .overlay-inner p {
         font-size: 18px;
     }
+    #items-section .col-md-4 {
+        flex: 1 1 calc(50% - 25px);  /* Adjust for 2 items per row on medium screens */
+    }
 }
 
-
+@media (max-width: 480px) {
+    #items-section .col-md-4, 
+    #items-section .col-sm-6 {
+        flex: 1 1 100%;  /* Adjust for 1 item per row on small screens */
+    }
+}
 
 @media only screen and (max-width: 360px) {
    

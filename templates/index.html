@@ -280,14 +280,40 @@
             </div>
 
             <div id="items-section" class="container">
-                <div class="row port-items"  style="position: relative; height: 570px;">
+                <div class="row port-items"  style="position: relative; ">
 
                     {% for item in items %}
 
-                    <div class="col-md-4 col-sm-6 col-xs-12 single-port hstyle " style="position: absolute; left: 0px; top: 0px;">
+                    <div class="col-md-4 col-sm-6 col-xs-12 single-port hstyle">
                         <div class="project-item"> 
-                            <h2>{{ item.title }}</h2>                                                                          
-                                                                  
+                            <h2 class="text-center">{{ item.title }}</h2>                                                                          
+                            <img class="img-fluid rounded w-100 work-image"
+                                    src="{{item.image.url}}"
+                                    alt="Image not available" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#modal-{{ forloop.counter }}">                                    
+                        </div>
+                    </div>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="modal-{{ forloop.counter }}" tabindex="-1" aria-labelledby="modalLabel-{{ forloop.counter }}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="modalLabel-{{ forloop.counter }}">{{ item.title }}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <!-- Modal Body -->
+                                <div class="modal-body text-center">
+                                    <img class="img-fluid rounded" src="{{ item.image.url }}" alt="Image not available">
+                                    <h3 class="mt-3">{{ item.title }}</h3>
+                                </div>
+                                <!-- Modal Footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 

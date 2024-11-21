@@ -525,19 +525,51 @@ ul.port-nav-list li a.active {
     border-radius: 25px;
     background: #BB8C4B;
 }
-
-.port-items {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-}
-
 .portfolio-items .port-items .single-port {
     overflow: hidden;
     margin-bottom: 25px;
 }
-.single-port{
+
+#items-section .port-items {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+#items-section .single-port{
     padding: 0;
+    margin-bottom: 25px;
+    background-color: #ffffff; /* Subtle background color */
+    border-radius: 10px; /* Smooth border radius */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Fading shadow */
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.25); /* Enhanced shadow on hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+}
+#items-section .single-port:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.95); /* Enhanced shadow on hover */
+    cursor: pointer;
+}
+
+
+/* Default: 3 items per row */
+#items-section .col-md-4 {
+    flex: 1 1 calc(33.333% - 25px); /* 33% width with gap compensation */
+}
+
+
+/* Flexbox for alignment */
+#items-section .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px; /* Space between items */
+}
+
+.modal-body img {
+    max-height: 70vh; /* Limit image height */
+    object-fit: contain; /* Ensure the image fits within its container */
 }
 
 /*   portfolio area ends    */
