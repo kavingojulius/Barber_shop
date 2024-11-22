@@ -16,20 +16,58 @@
     <img class="background-image" src="{% static 'assets/img/backg.jpg' %}" alt="">    
     <div class="banner-text-area text-center">
         <h2 class="banner-text">
-            <span style="font-family: 'SANSERN', sans-serif;">KING'S</span>
+            <span style="font-family: 'sans-serif', cursive;">KING'S</span>
         </h2>
         <hr style="background-color: rgb(255, 254, 254); margin: auto; width: 5.5em; height: 0.3em;">
         <h1 class="mt-3">Executive Barber & Spa</h1>
         <hr style="background-color: beige; margin: auto; width: 100%; height: 0.3em;">  
         <div class="slide-btn">
-            <a class="btn rounded-pill appointment-btn" href="#about">&downdownarrows;</a>
+            <a class="btn rounded-pill appointment-btn" href="#about" role="button" aria-label="Scroll to About Section">&downdownarrows;</a>
         </div>
     </div>                                       
 </section>
+<!-- Javascript for smooth scrolling -->
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const slideBtn = document.querySelector(".slide-btn a");
+    
+        slideBtn.addEventListener("click", (event) => {
+            event.preventDefault(); // Prevent default anchor behavior
+    
+            const targetSection = document.querySelector(slideBtn.getAttribute("href"));
+            if (!targetSection) return;
+    
+            const targetPosition = targetSection.getBoundingClientRect().top + window.scrollY;
+            const startPosition = window.scrollY;
+            const distance = targetPosition - startPosition;
+            const duration = 3000; // 3 seconds
+            const startTime = performance.now();
+    
+            function scrollStep(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1); // Cap progress at 1
+                const easeInOutQuad = progress < 0.5 
+                    ? 2 * progress * progress 
+                    : -1 + (4 - 2 * progress) * progress; // Ease in-out formula
+    
+                window.scrollTo(0, startPosition + distance * easeInOutQuad);
+    
+                if (elapsedTime < duration) {
+                    requestAnimationFrame(scrollStep); // Continue scrolling
+                }
+            }
+    
+            requestAnimationFrame(scrollStep); // Start the animation
+        });
+    });
+    
+</script>
+
+<div></div>
 
 <!-- About Us Section -->
 
-<div id="about" class="container about-s mt-5 mb-5">
+<div id="about" class="container about-s mt-5 mb-5" style="font-family: 'sans-serif', cursive;font-weight:bold;">
     <div class="row text-center mt-3 mb-2">
         <div class="col-md-12">
             <div class="section-header">
@@ -39,44 +77,58 @@
             </div>
         </div>
     </div>
+
     <div class="row about-row justify-content-center align-items-center">
         <div class="col-md-5 col-sm-12 col-xs-12">
-            <div class="owl-carousel owl-theme about-video"  id="videocarousel" data-bs-ride="true">                    
-                <div class="item single-video text-center">
-                    <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@busu.j/video/7241576429975047430"
-                        data-video-id="7241576429975047430" style=" max-width:80vh;max-height:50vh;" > 
-                        <section>
-                            <a target="_blank" title="@busu.j" href="https://www.tiktok.com/@busu.j?refer=embed">@busu.j</a> <p></p> 
-                            <a target="_blank" title="♬ Nani - Zuchu" href="https://www.tiktok.com/music/Nani-7229329703038945282?refer=embed">♬ Nani - Zuchu</a> 
-                        </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>                                                
+            <div class="owl-carousel owl-theme"  id="videocarousel" data-bs-ride="true">                    
+
+                <div class="single-video text-center">
+                    <div class="video-container">
+                        <video class="video-background" width="300" height="200" autoplay muted loop controls >
+                            <source src="{% static 'assets/videos/vid1.mp4' %}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>                        
+                    </div>
                 </div>
-                <div class="item single-video">
-                    <a href="https://web.facebook.com/login.php?next=https%3A%2F%2Fwww.facebook.com%2Fpages&_rdc=1&_rdr"> 
-                        <i class="fas fa-play"></i>
-                    </a>
-                    <!-- <video controls class="d-block w-100 img-fluid">
-                        <source src="{% static 'assets/video/video.mp4' %}" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video> -->
-                    <img src="{% static 'assets/img/blog1.jpg' %}" class="d-block w-100 img-fluid" alt="about image"> change image
+
+                <div class="single-video">
+                    <div class="video-container">
+                        <video class="video-background" width="300" height="200" autoplay muted loop controls >
+                            <source src="{% static 'assets/videos/vid4.mp4' %}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>                        
+                    </div>
                 </div>
-                <div class="item single-video">
-                    <a href="https://www.tiktok.com/@dailyug/video/7229364895077174533" class=""> 
-                        <i class="fa fa-play"></i>
-                    </a>
-                    
-                    <img src="{% static 'assets/img/port-3.jpg' %}" class="d-block w-100 img-fluid" alt="about image"> <!--change image -->
-                </div>                                                            
+
+                <div class="single-video">                                        
+                    <div class="video-container">
+                        <video class="video-background" width="300" height="200" autoplay muted loop controls >
+                            <!-- <source src="{% static 'assets/videos/vid2.mp4' %}" type="video/mp4"> -->
+                            Your browser does not support the video tag.
+                        </video>                        
+                    </div>
+                </div>
+                
+                <div class="single-video">                                        
+                    <div class="video-container">
+                        <video class="video-background" width="300" height="200" autoplay muted loop controls >
+                            <source src="{% static 'assets/videos/vid4.mp3' %}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>                        
+                    </div>
+                </div>  
+                
+                
             </div>
         </div>
         <div class="col-md-7 col-sm-12 col-xs-12">
-            <div class="about-main">
+            <div class="about-main" >
                 <!-- <h3>Why Choose Us?</h3> -->
-                <h2>We are Your Best Choice</h2>
+                <h2 style="font-style:italic;">*We are Your Best Choice*</h2>
                 <div class="single-about">
                     <p>We prioritize customer satisfaction and strive to exceed your exepctations with personalized consultations and attention to detail. Our Skilled barbers deliver tailored haistyles that suits your unique personality and lifestyle Visit us to unleash your true confidence through exceptional hair care.</p>
                 </div>
-                <a href="#" class="btn btn-warning rounded-pill">Contact Us</a>
+                <a href="#" class="btn rounded-pill fw-bold" style="background-color: rgb(240, 187, 54);;">Contact Us</a>
             </div>
         </div>
     </div>
@@ -91,9 +143,13 @@
         <div class="row text-center ">
             <div class="col-md-12">
                 <div class="section-header">
-                    <h2><span>Our</span> Services</h2>
+                    <h2><span>*.Our</span> Services.*</h2>
                     <div class="line"><img src="{% static 'assets/img/2.png' %}" alt=""></div>
-                    <p class="sub-head text-muted fw-bold">&divonx;  Experience the finest in grooming services as we offer a diverse range of treatments at our barbershop  &divonx;</p>
+                    <p class="sub-head text-muted fw-bold" style="font-family:'sans-serif', cursive">
+                        &divonx;
+                          Experience the finest in grooming services as we offer a diverse range of treatments at our barbershop  
+                        &divonx;
+                    </p>
                     
                 </div>
             </div>
@@ -106,7 +162,7 @@
                         
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-cut"></i>
+                                <i class="fa fa-tasks"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Amenities</h3> 
@@ -121,34 +177,45 @@
 
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-tint"></i>
+                                <i class="fa fa-hand-scissors"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Shave</h3>      
                                 <hr>                       
-                                <span>&divonx; Kids shave</span> <br>
+                                <!-- <span>&divonx; Kids shave</span> <br>
                                 <span>&divonx; Students shave</span> <br>
                                 <span>&divonx; Smooth shave</span>  <br>
-                                <span>&divonx; Shave / Babylocks</span>                          
+                                <span>&divonx; Shave / Babylocks</span>  -->
+                                <ul style="margin-left:15px;">
+                                    <li>Kids shave</li>
+                                    <li>Students shave</li>
+                                    <li>Smooth shave</li>
+                                    <li>Shave / Babylocks</li>
+                                </ul>                         
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-diamond"></i>
+                                <i class="fa fa-paint-brush"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Dye Services</h3> 
-                                <hr>
-                                <span>&divonx; Dye-MIN  </span>  <br>
+                                <hr>                            
+                                <ul style="margin-left:15px;">
+                                    <li>Dye-MIN</li>
+                                    <li>Own Dye</li>
+                                    <li>Coloured Dye</li>                                    
+                                </ul> 
+                                <!-- <span>&divonx; Dye-MIN  </span>  <br>
                                 <span>&divonx; Own Dye  </span> <br>
-                                <span>&divonx; Coloured Dye </span>
+                                <span>&divonx; Coloured Dye </span> -->
                             </div>
                         </div>
                         
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-diamond"></i>
+                                <i class="fa fa-leaf"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Hair Color</h3> 
@@ -159,7 +226,7 @@
 
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-cut"></i>
+                                <i class="fa fa-hand-lizard"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Hair Treatment</h3> 
@@ -167,8 +234,6 @@
                                 <p>Indulge in our repetoire of exquisite hair treatment ,meticulously designed to nourish, repair and elevate the health and radiance of your hair, strands and locks.</p>
                             </div>
                         </div>
-
-                        
 
                         <div class="item">
                             <div class="services-icon">
@@ -183,7 +248,7 @@
 
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-hand-scissors-o"></i>
+                                <i class="fa fa-eraser"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Beard Triming</h3> 
@@ -192,11 +257,9 @@
                             </div>
                         </div>
 
-                        
-
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-dashcube"></i>
+                                <i class="fa fa-sign-language"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 
@@ -207,9 +270,10 @@
                             </div>
 
                         </div> 
+
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-dashcube"></i>
+                                <i class="fa fa-sign-language"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Face Masking</h3> 
@@ -220,7 +284,7 @@
 
                         <div class="item">
                             <div class="services-icon">
-                                <i class="fa fa-tint"></i>
+                                <i class="fa fa-sign-language"></i>
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Massage Services</h3>  
@@ -232,12 +296,62 @@
                             </div>
                         </div>
 
+                       
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+ <!-- Bootstrap Modal for displaying each service and its items -->
+ <div class="modal fade" id="serviceModal" tabindex="-1" aria-labelledby="serviceModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="serviceModalLabel">Service Details</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        // Get all items
+        const items = document.querySelectorAll(".item");
+        const modalBody = document.querySelector("#serviceModal .modal-body");
+        const modalTitle = document.querySelector("#serviceModalLabel");
+    
+        items.forEach(item => {
+            item.addEventListener("click", () => {
+                // Extract the title and content from the clicked item
+                const title = item.querySelector("h3").innerText;
+                const content = item.querySelector(".services-content").cloneNode(true);
+    
+                // Remove the title and the first <hr> from the cloned content
+                const clonedTitle = content.querySelector("h3");
+                if (clonedTitle) clonedTitle.remove();
+    
+                const firstHr = content.querySelector("hr");
+                if (firstHr) firstHr.remove();
+    
+                // Update the modal's content and title
+                modalBody.innerHTML = content.innerHTML;
+                modalTitle.innerText = title;
+    
+                // Show the modal
+                const modal = new bootstrap.Modal(document.getElementById("serviceModal"));
+                modal.show();
+            });
+        });
+    });
+    
+</script>
                                 
 <!-- End  Our Services -->
 
