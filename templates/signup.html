@@ -9,28 +9,29 @@
 
 
     {% block content %}
-    <div class="container text-center mt-5 service-header shadow">
-        <h2 class="">Sign | Page</h2>
-    </div>
+        <div style="padding-top: 10vh;">
+            <div class="container text-center mt-5 service-header shadow">
+                <h2 class="">Sign | Page</h2>
+            </div>
+                    
+            <div class="container mt-4 fform">
+                <form action="{% url 'signup' %}" method="POST" class="frm p-3 shadow rounded" style="width:40%; margin: auto;">
+                    {% csrf_token %}
+                    <label for="" >Username</label>
+                    <input type="text" class="form-control mt-2 mb-3" name="username" placeholder="Username" required>
+
+                    <label for="">Email</label>
+                    <input type="email" class="form-control mt-2 mb-3" name="email" placeholder="Your Email" required>
             
-    <div class="container mt-4 fform">
-        <form action="{% url 'signup' %}" method="POST" class="frm p-3 shadow rounded" style="width:40%; margin: auto;">
-            {% csrf_token %}
-            <label for="" >Username</label>
-            <input type="text" class="form-control mt-2 mb-3" name="username" placeholder="Username" required>
+                    <label for="">Password</label>
+                    <input type="password" class="form-control mt-2 mb-3" name="password1" id="pass1" placeholder="Your password" required>
 
-            <label for="">Email</label>
-            <input type="email" class="form-control mt-2 mb-3" name="email" placeholder="Your Email" required>
-       
-            <label for="">Password</label>
-            <input type="password" class="form-control mt-2 mb-3" name="password1" id="pass1" placeholder="Your password" required>
+                    <label for="">Confirm Password</label>
+                    <input type="password" class="form-control mt-2 mb-3" name="password2" id="pass2" placeholder="Confirm password" required>
 
-            <label for="">Confirm Password</label>
-            <input type="password" class="form-control mt-2 mb-3" name="password2" id="pass2" placeholder="Confirm password" required>
-
-            <input type="submit" name="submit" class="btn btn-outline-primary mt-3 text-center">
-            <p>Already Registered ? <a href="{% url 'login' %}">Log in</a></p> 
-        </form>
-    </div>
-
+                    <input type="submit" name="submit" class="btn btn-outline-primary mt-3 text-center">
+                    <p>Already Registered ? <a href="{% url 'login' %}">Log in</a></p> 
+                </form>
+            </div>
+        </div>
     {% endblock %}

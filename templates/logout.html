@@ -9,17 +9,16 @@
 
 
     {% block content %}
+        <div style="padding-top: 10vh;">
+            <div class="container shadow p-2 mt-2 text-center">            
+                <div class="btn btn-outline-success"><a href="{% url 'signup' %}" class="nav-link">Sign Up</a></div>
+                <div class="btn btn-outline-success"><a href="{% url 'login' %}" class="nav-link">Login</a></div>
+            </div>
 
-        <div class="container shadow p-2 mt-2 text-center">            
-            <div class="btn btn-outline-success"><a href="{% url 'signup' %}" class="nav-link">Sign Up</a></div>
-            <div class="btn btn-outline-success"><a href="{% url 'login' %}" class="nav-link">Login</a></div>
+            <div class="mt-4 mb-4 container text-center shadow rounded  p-3" style="max-width:50%;">
+                <!-- {{ request.user }} -->
+                <p>You have been logged out</p>
+                
+            </div>
         </div>
-
-
-        <div class="mt-4 mb-4 container text-center shadow rounded  p-3" style="max-width:50%;">
-            <!-- {{ request.user }} -->
-            <p>You have been logged out</p>
-            
-        </div>
-       
     {% endblock %}

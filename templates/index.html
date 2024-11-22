@@ -67,7 +67,7 @@
 
 <!-- About Us Section -->
 
-<div id="about" class="container about-s mt-5 mb-5" style="font-family: 'sans-serif', cursive;font-weight:bold;">
+<div id="about" class="container about-s mt-3 mb-2" style="font-family: 'sans-serif', cursive;font-weight:bold;">
     <div class="row text-center mt-3 mb-2">
         <div class="col-md-12">
             <div class="section-header">
@@ -128,7 +128,7 @@
                 <div class="single-about">
                     <p>We prioritize customer satisfaction and strive to exceed your exepctations with personalized consultations and attention to detail. Our Skilled barbers deliver tailored haistyles that suits your unique personality and lifestyle Visit us to unleash your true confidence through exceptional hair care.</p>
                 </div>
-                <a href="#" class="btn rounded-pill fw-bold" style="background-color: rgb(240, 187, 54);;">Contact Us</a>
+                <a href="#" class="btn rounded-pill fw-bold" style="background: #cda773;">Contact Us</a>
             </div>
         </div>
     </div>
@@ -136,10 +136,23 @@
 
 <!-- End About Us Section -->
 
-<!-- Our Services -->
+<!-- <hr style="width: 80%;margin: 0 auto; height:20px;background:rgb(0, 0, 0);border-radius:50%;">  -->
+<div style="
+width: 95%;
+margin:auto;
+height: 10svh;
+background-color: transparent;
+border-bottom: 15px solid black;
+border-radius: 50% 50%;        
+bottom: 0;
+">
+</div>
 
-<div class="services-area">
-    <div class="container mt-5">
+
+<!-- Our Services -->
+            
+<div class="services-area" id="services">
+    <div class="container mt-2">
         <div class="row text-center ">
             <div class="col-md-12">
                 <div class="section-header">
@@ -181,11 +194,7 @@
                             </div>
                             <div class="services-content text-start text-muted">
                                 <h3>Shave</h3>      
-                                <hr>                       
-                                <!-- <span>&divonx; Kids shave</span> <br>
-                                <span>&divonx; Students shave</span> <br>
-                                <span>&divonx; Smooth shave</span>  <br>
-                                <span>&divonx; Shave / Babylocks</span>  -->
+                                <hr>                                                       
                                 <ul style="margin-left:15px;">
                                     <li>Kids shave</li>
                                     <li>Students shave</li>
@@ -465,12 +474,14 @@
             {% for price in price %}
                 <div class="col-lg-4 col-md-3 col-sm-4 pricing-col mt-2 mb-2">
                     <div class="single-pricing-box ">
-                        <h3>{{price.name}}</h3>
+                        <h3>{{ forloop.counter }}. {{price.name}}</h3>
+                        <hr>                        
                         <div class="pricing">
-                            <span class="price-label" >Price</span>
+                            <span class="price-label fw-bold fst-italic">Price</span>
+                            <span class="fw-bold">&RightArrowLeftArrow;</span>
                             <span class="price">ksh {{price.price}}</span>
                         </div>      
-                                                                                                                            
+                                                                                                               
                     </div>                    
                 </div>
             {% endfor %}                                                   
@@ -480,9 +491,24 @@
 
 <!--pricing area ends-->
 
+
+<!-- curved section -->
+
+<h2 class="text-center">*****</h2>
+<div style="
+    width: 95%;
+    margin:auto;
+    height: 10svh;
+    background-color: transparent;
+    border-top: 15px solid black;
+    border-radius: 50% 50% 0 0;        
+    bottom: 0;
+">
+</div>
+
 <!-- Team Section -->
 
-<div id="team" class="team-area mb-4">
+<div id="team" class="team-area mb-2">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -557,76 +583,25 @@
 <!-- End Team Section -->
 
 
-<!-- Testimonial section -->
-
-<!-- <div id="testimonial" class="testimonial-area">
-    <div class="container mt-5">
-        <div class="row text-center ">
-            <div class="col-md-12">
-                <div class="section-header">
-                    <h2><span>Client</span> Says</h2>
-                    <div class="line"><img src="{% static 'assets/img/2.png' %}" alt=""></div>
-                    <p class="sub-head text-muted fw-bold">Hear what our valued clients have to say about their experinces</p>
-                    
-                </div>
-            </div>
-        </div>
-
-        <div class="row"> 
-            <div class="col-sm-12">
-                <div class="slider">
-                    <div class="owl-carousel owl-theme" id="testimonial-carousel">
-                        
-                        
-                        <div class="item">
-                            
-                            <div class="testimonial-content">
-                                <h3>Client 1</h3>
-                                <hr >
-                                <p>" Hii place ikona game kali sana, huduma zao ziko freshii na wanahandle mambo poa. Siezi acha kurecommend wasee hapa! "</p>                                            
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            
-                            <div class="testimonial-content">
-                                <h3>Client 2</h3> 
-                                <hr >
-                                <p>" This barbershop is top-notch!. The barbers really know their stuff, and the hairstyles they deliver are amazing. I can't recommend enough. "</p>                                            
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            
-                            <div class="testimonial-content">
-                                <h3>Client 3</h3> 
-                                <hr >
-                                <p>" I am definitely coming back!. I had an incredible massage that made me feel refreshed and tension-free."</p>                                            
-                            </div>
-                        </div>
-
-                        <div class="item">
-                            
-                            <div class="testimonial-content">
-                                <h3>Client 4</h3> 
-                                <hr >
-                                <p>I couldn't be happier with the oustanding service I received at the barbershop. I walked out with a fresh haicut that exceed my expectations. Highly recommended.</p>                                            
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-                        
-<!-- End Testimonial section -->
-
-
 <!--Contact Area Starts-->
 
-<div id="contact" class="contact-area mt-5 mb-5">
+<!-- curved section -->
+ 
+<div style="
+    width: 95%;
+    margin:auto;
+    height: 10svh;
+    background-color: transparent;
+    border-bottom: 10px solid black;
+    border-radius:0 0 50% 50% ;        
+    bottom: 0;
+">
+</div>
+
+<h2 class="text-center">*****</h2>
+
+
+<div id="contact" class="contact-area mt-2 mb-5">
     <div class="container">
         <div class="row">
             <div class="col-md-12">

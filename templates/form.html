@@ -9,26 +9,19 @@
 
     
         {% block content %}
-
-            <div class="container text-center mt-5 service-header shadow">
-                <h2 class="">Add Service Price</h2>
-            </div>
-            
-            <div class="container mt-4 fform">
-
-                <form action="{% url 'form' %}" method="POST" class="frm p-3 mt-5 shadow rounded" style="width:40%; margin: auto;">
-                    {% csrf_token %}
-
-                    {{ form|crispy }}
-
-                   
-                    <input type="submit" name="submit" value="Add" class="btn btn-outline-success mt-3">
-                    
-                    
+            <div style="padding-top: 10vh;">
+                <div class="container text-center mt-5 service-header shadow">
+                    <h2 class="">Add Service Price</h2>
+                </div>
                 
-                </form>
+                <div class="container mt-4 fform">
+                    <form action="{% url 'form' %}" method="POST" class="frm p-3 mt-5 shadow rounded" style="width:40%; margin: auto;">
+                        {% csrf_token %}
+                        {{ form|crispy }}                
+                        <input type="submit" name="submit" value="Add" class="btn btn-outline-success mt-3">                                                        
+                    </form>
+                </div>
             </div>
-
         {% endblock %}
 
 

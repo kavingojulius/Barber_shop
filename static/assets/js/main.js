@@ -71,39 +71,8 @@
             }
         });
 
-         // TESTIMONIAL CAROUSEL 
-        $("#testimonial-carousel").owlCarousel({
-            loop:true,
-            center:false,            
-            margin:50,            
-            autoplay:true,
-            dots:true,
-            // responsiveBaseElement:'body',
-            responsiveClass:true,
-            autoplayTimeout: 8500,
-            smartSpeed: 450,        
-            responsive:{
-                0:{
-                    items:1
-                },
 
-                400:{
-                    items:1,
-                    
-                },
-                680:{
-                    items:2
-                },
-                1000:{
-                    items:3
-                }
-               
-               
-            }
-        });
-
-
-          //************ Magnific Popup
+        //************ Magnific Popup
 
         $('.video-play').magnificPopup({
             type: 'video',
@@ -148,15 +117,7 @@
                 },1000);
             }).trigger('resize');
         }
-    
-        
-        
-
-
-
-
-
-        
+            
     });
 
 
